@@ -24,5 +24,3 @@ export async function POST(req) {
     return NextResponse.json({ err: err.message }, { status: 500 });
   }
 }
-// try using postman
-// send name, email, password as json format in re.body
