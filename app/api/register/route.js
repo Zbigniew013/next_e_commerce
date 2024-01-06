@@ -4,14 +4,13 @@ import User from '@/models/user';
 import bcrypt from 'bcrypt';
 
 export async function POST(req) {
-  const body = await req.json();
-  // console.log("body in register api => ", body);
-
   await dbConnect();
 
-  try {
-    const { name, email, password } = body;
+  const body = await req.json();
+  console.log('body in register api => ', body);
+  const { name, email, password } = body;
 
+  try {
     await new User({
       name,
       email,
@@ -21,6 +20,7 @@ export async function POST(req) {
     return NextResponse.json({ success: 'Registered Successfully' });
   } catch (err) {
     console.log(err);
+
     return NextResponse.json({ err: err.message }, { status: 500 });
   }
 }
