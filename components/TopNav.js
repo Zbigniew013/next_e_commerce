@@ -11,14 +11,29 @@ const TopNav = () => {
         🛒 NEXTECOM
       </Link>
 
-      <div className='d-flex'>
-        <Link href='/login' className='nav-link'>
-          Login
-        </Link>
-        <Link href='/register' className='nav-link'>
-          Register
-        </Link>
-      </div>
+      {status === 'authenticated' ? (
+        <div className='d-flex'>
+          <Link className='nav-link' href='/dashboard/user'>
+            {data?.user.name}
+          </Link>
+
+          <a
+            className='nav-link pointer'
+            onClick={() => signOut({ callbackUrl: '/login' })}
+          >
+            Logout
+          </a>
+        </div>
+      ) : (
+        <div className='d-flex'>
+          <Link href='/login' className='nav-link'>
+            Login
+          </Link>
+          <Link href='/register' className='nav-link'>
+            Register
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };
