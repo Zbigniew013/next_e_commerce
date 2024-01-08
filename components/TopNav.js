@@ -24,6 +24,8 @@ const TopNav = () => {
             Logout
           </a>
         </div>
+      ) : status === 'loading' ? (
+        <a className='nav-link text-danger'>Loading</a>
       ) : (
         <div className='d-flex'>
           <Link href='/login' className='nav-link'>
