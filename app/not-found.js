@@ -1,7 +1,7 @@
-export default function Loading() {
+export default function NotFound() {
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 text-danger'>
-      LOADING
+      404
     </div>
   );
 }
